@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="renderer" content="webkit" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0,user-scalable=0,uc-fitscreen=yes" />
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+		<meta name="format-detection" content="telephone=no" />
+		<title>miniMobile</title>
+		<meta name="keywords" content="miniMobile的demo" />
+		<meta name="description" content="miniMobile是一个简单易用的移动框架！" />
+		<!-- miniMObile.css、js -->
+		<link rel="stylesheet" type="text/css" href="css/miniMobile.css" />
+		<script type="text/javascript" src="js/zepto.min.js"></script>
+		<script type="text/javascript" src="js/miniMobile.js"></script>
+		<!-- fonticon -->
+		<link rel="stylesheet" type="text/css" href="plugins/fonticon/iconfont.css" />
+		<!-- animate.css -->
+		<link rel="stylesheet" type="text/css" href="https://cdn.staticfile.org/animate.css/3.5.2/animate.min.css" />
+		<!-- layer -->
+		<script type="text/javascript" src="plugins/layer_mobile/layer.js"></script>
+		<!-- ali_afs.js -->
+		<!-- <script type="text/javascript" charset="utf-8" src="http://g.alicdn.com/sd/ncpc/nc.js?t=2015052012"></script> -->
+	</head>
+
+	<body class="pb12 fadeIn animated" style="padding-bottom: 65px;">
+		<header class="ui-header clearfix w75 pl3 pr3 h8 f46  color8 bg-color-primary t-c header">
+			<div class="ui-header-l fl w5">
+				<a href="index.html" class="icon color8 iconfont icon-home_light"></a>
+			</div>
+			<div class="ui-header-c fl f30 w59">
+				访客申请
+			</div>
+			<div class="ui-header-r fr w5">
+				<i class="icon iconfont icon-phone"></i>
+			</div>
+		</header>
+		<style>
+			.formheader {
+				line-height: 0.7rem;
+			}
+			
+			.formheader span {
+				display: inline-block;
+			}
+			
+			.formheader input {
+				border: none;
+			}
+		</style>
+		<div class="p3 f30 f30 w75 main">
+			<form>
+				<div class="t-c pt2 pb2">
+					申请人姓名：
+					<input type="text" class="w59  form-control" id="username" placeholder="姓名" max="20" />
+				</div>
+				<div class="t-c pt2 pb2">
+					理&emsp;由：
+					<input type="text" class="w59  form-control" id="password" placeholder="理由" max="20" />
+				</div>
+				<div class="pt2 pb2">
+					<center>
+						<div id="your-dom-id" class="nc-container"></div>
+					</center>
+					<!--No-Captcha渲染的位置，其中 class 中必须包含 nc-container-->
+				</div>
+				<div class="t-c mt5">
+					<input type="button" class="btn f30 btn-primary radius10 p2 w50" value="提交" id="login_button" />
+				</div>
+
+			</form>
+		</div>
+		<!-- 底部导航 -->
+		<div class="footer"></div>
+
+		<script>
+			// 获取公共底部
+			$(document).ready(function() {
+				$(".footer").load("footer.html");
+			});
+
+			// 阿里云验证
+			
+			// localStorage读取
+
+
+			// jwt判断
+		
+			// 登录
+			// form.on('login_button)', function(data) {
+			// 		if(nc_SessionId == '') {
+			// 			layer.msg('请先通过滑动验证', {
+			// 				icon: 2,
+			// 				anim: 6
+			// 			});
+			// 			return false;
+			// 		};
+			// 		var field = data.field;
+			// 		$.ajax({
+			// 			url: "http://localhost:8080/users/ttemp/",
+			// 			type: "post",
+			// 			dataType: "json",
+			// 			data: {
+			// 				"mobile": field.usernamee,
+			// 				"gender": field.passworde,
+							
+
+			// 			},
+			// 		});
+			// 	});
+
+			$('#login_button').click(function() {
+				
+				$.ajax({
+						url: "http://localhost:8080/users/ttemp/",
+						type: "post",
+						dataType: "json",
+						data: {
+							"mobile": $('#username').val(),
+							"gender": $('#password').val(),
+							
+
+						},
+					});
+			});
+		</script>
+
+		<style type="text/css">
+			.userbox {
+				line-height: 2em;
+				background: url(img/s5.jpg) center 40% no-repeat;
+				background-size: cover
+			}
+			
+			.userbox-l img {
+				border: 2px solid #fff;
+			}
+			
+			li {
+				line-height: 2.5em;
+				border-top: 1px solid #F1F1F1;
+				border-bottom: 1px solid #F1F1F1;
+				margin-top: -1px;
+			}
+			
+			li a {
+				display: block;
+				width: 100%;
+				height: 100%;
+			}
+			
+			.demo-bottomNav {
+				line-height: 1.8em;
+				border-top: 1px solid #F1F1F1;
+			}
+			
+			.demo-bottomNav a {
+				display: block;
+				width: 100%;
+				height: 100%;
+			}
+			
+			.header {
+				padding-bottom: 10%;
+				width: 100%;
+				position: fixed;
+				top: 0px;
+				left: 0px;
+				z-index: 9998;
+			}
+			
+			.main {
+				position: absolute;
+				width: 100%;
+				height: auto;
+				top: 40px;
+				padding-bottom: 60px;
+			}
+		</style>
+
+	</body>
+
+</html>
